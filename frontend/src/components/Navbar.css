@@ -1,0 +1,89 @@
+.navbar{
+    width: 100%;
+    padding: 5px 0;
+    background: rgb(15, 17, 34);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.nav {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.navbar__btns {
+    display: flex;
+}
+
+.signIn__btn,
+.signUp__btn {
+    padding: .6rem 1rem ;
+    border-radius: 3px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: .890rem;
+    font-weight: 500;
+    color: #fff;
+    background: #ED1B30;
+}
+
+.signIn__btn{
+    margin-right: 1.5rem;
+}
+
+.signIn__btn.active,
+.signUp__btn.active{
+    border: 2px solid #ED1B30;
+    background: none;
+    color: #fff;
+}
+
+.logo{
+    width: 70px;
+}
+
+.user__name{
+    cursor: pointer;
+    font-size: .9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+
+.nav .user__list {
+    position: absolute;
+    top: 50px;
+    right: 16px;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 3px;
+    box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.06);
+}
+
+.user__list p{
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+}
+
+.user__list button{
+    width: 100%;
+    padding: .6rem 1rem;
+    background-color: crimson;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.down__icon,
+.up__icon {
+    font-size: 1.4rem;
+    color: lightgray;
+}
