@@ -1,0 +1,96 @@
+.register,
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 85vh;
+}
+
+
+.register__box,
+.login__box {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 6px;
+    width: 100%;
+    margin: 1rem;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; */
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.register__title,
+.login__title{
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 1.4rem;
+    text-transform: capitalize;
+}
+
+.register__input_box,
+.login__input_box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.register__label,
+.login__label {
+    font-size: .9rem;
+    font-weight: 500;
+    margin-bottom: .3rem;
+}
+
+.register__input,
+.login__input {
+    padding: .8rem;
+    font-size: .9rem;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    outline-color: cornflowerblue;
+    font-weight: 500;
+}
+
+.register__btn,
+.login__btn {
+    width: 100%;
+    display: inline-block;
+    margin: 1.3rem 0;
+    padding: .8rem;
+    border-radius: 3px;
+    border: none;
+    /* background: cornflowerblue; */
+    /* color: #000; */
+    color: #fff;
+    background: rgb(15, 17, 34);
+    text-transform: uppercase;
+    font-size: .8rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.register__link,
+.login__link {
+    font-size: .9rem;
+}
+
+
+.errorBox {
+    background: #F8D7DA;
+    color:#881C24;
+    width: 100%;
+    padding: .8rem;
+    border-radius: 3px;
+    font-size: .9rem;
+    font-weight: 500;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+@media(min-width:768px){
+    .register__box,
+    .login__box{
+        width: 450px;
+    }
+}
