@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import authRouter from './routes/authRouter.js';
+import itemRouter from './routes/itemRouter.js';
 import path from 'path';
 
 
@@ -32,6 +33,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/auth', authRouter);
+app.use('/api/items', itemRouter);
 
 
 // Heroku deployment
