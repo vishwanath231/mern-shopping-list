@@ -21,7 +21,7 @@ connectDB();
 
 // Morgan
 if (process.env.NODE_ENV === 'development') {
-    app.use(morgan("tiny"));
+    app.use(morgan("dev"));
 }
 
 // CORS - Cross Origin Resource Sharing
