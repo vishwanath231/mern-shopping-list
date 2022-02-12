@@ -28,7 +28,8 @@
     font-size: .890rem;
     font-weight: 500;
     color: #fff;
-    background: #ED1B30;
+    background: #E7141A;
+    /* background: #ED1B30; */
 }
 
 .signIn__btn{
@@ -37,13 +38,13 @@
 
 .signIn__btn.active,
 .signUp__btn.active{
-    border: 2px solid #ED1B30;
+    border: 2px solid #E7141A;
     background: none;
     color: #fff;
 }
 
 .logo{
-    width: 70px;
+    width: 80px;
 }
 
 
@@ -78,7 +79,7 @@
 .user__list button{
     width: 100%;
     padding: .6rem 1rem;
-    background-color: crimson;
+    background-color: #C51B1F;
     color: #fff;
     border: none;
     cursor: pointer;
