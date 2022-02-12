@@ -8,12 +8,17 @@ import RegisterScreen from './screen/RegisterScreen';
 import { loadUser } from './redux/actions/authActions';
 import store from './redux/store';
 
+
 const App = () => {
 
 
     useEffect(() => {
         
         store.dispatch(loadUser());
+
+        // window.onbeforeunload = function() {
+        //     localStorage.removeItem('token');
+        // }
         
     }, []);
 
