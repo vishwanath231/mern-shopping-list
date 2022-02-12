@@ -36,15 +36,9 @@ const HomeScreen = ({ item, getItems, deleteItem, isCheckItem, isAuthenticated})
                         { 
                             isAuthenticated ? 
                             <div className='item__actions'>
-                                {  val.isCheck ?  
-                                    <button className='action__icon' onClick={() => unCheckItem(val._id)}>
-                                        <GoCheck className='check__icon' />
-                                    </button> 
-                                    :  
-                                    <button className='action__icon' onClick={() => checkItem(val._id)}>
-                                        <GoCheck className='check__icon' />
-                                    </button> 
-                                }
+                                <button className='action__icon' onClick={val.isCheck ? () => unCheckItem(val._id) : () => checkItem(val._id) }>
+                                    <GoCheck className='check__icon' />
+                                </button> 
                                 <button className='action__icon' onClick={() => deleteItemHandle(val._id)}>
                                     <IoClose className='delete__icon'/>
                                 </button>
