@@ -1,9 +1,44 @@
-.homescreen__container,
-.dashboardscreen__container{
+.item__containter{
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.item__box {
+    width: 100%;
+    border: 1px solid rgb(207, 205, 205);
+}
+
+.item__list{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
-    min-height:85vh;
-    text-transform: capitalize;
+    padding: .7rem 1rem;
+    border: 1px solid rgb(207, 205, 205);
+}
+
+.item__list:nth-child(even){
+    background-color: #f1f1f1;
+}
+
+.item__list .item__name{
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+
+.item__list .action__icon{
+    border: none;
+    background: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.delete__icon{
+    color: crimson;
+}
+.check__icon{
+    color: green;
+    margin-right: 1.5rem;
 }
