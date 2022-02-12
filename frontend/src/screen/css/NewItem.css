@@ -6,7 +6,7 @@
 
 .newItem__container h2 {
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     margin-bottom: 2rem ;
 }
 .newItem__container p {
@@ -18,10 +18,9 @@
     display: flex;
     align-items: center;
 }
-.name__input,
-.submit__btn{
+.name__input{
     width: 100%;
-    padding: .7rem 1rem;
+    padding: .8rem 1rem;
     border: 1px solid #dbdbdb;
     outline-color: cornflowerblue;
     font-size: 1rem;
@@ -29,8 +28,16 @@
 }
 
 .submit__btn {
-    width: 15%;
+    width: 20%;
     cursor: pointer;
+    margin-left: .1rem;
+    color: #fff;
+    border: 1px solid rgb(15, 17, 34);
+    background: rgb(15, 17, 34);
+    padding: .8rem 1rem;
+    outline-color: cornflowerblue;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 
@@ -39,6 +46,7 @@
         width: 50%;
     }
     .submit__btn {
+        width: 15%;
         margin-left: .3rem;
     }
 }
