@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getItems, deleteItem, isCheckItem } from '../redux/actions/itemActions';
 import { IoClose } from 'react-icons/io5';
 import { GoCheck } from 'react-icons/go';
+import Loader from '../components/loader/Loader';
 
 const HomeScreen = ({ item, getItems, deleteItem, isCheckItem, isAuthenticated}) => {
 
@@ -14,7 +15,8 @@ const HomeScreen = ({ item, getItems, deleteItem, isCheckItem, isAuthenticated})
     const deleteItemHandle = id => {
         deleteItem(id);
     }
-    const { items } = item;
+    const { items, isLoading } = item;
+
 
     // check item
     const checkItem = (id) => isCheckItem(id, {isCheck: true })
@@ -26,7 +28,8 @@ const HomeScreen = ({ item, getItems, deleteItem, isCheckItem, isAuthenticated})
     return (
 
         <div className='item__containter'>
-            {<div className='item__box'>
+            {
+                isLoading ? <Loader /> :  <div className='item__box'>
                 { items.map((val)  => (
                     <div key={val._id} className="item__list">
                         <div className='item__name' style={{textDecoration : val.isCheck ? 'line-through': null}} >{val.name}</div>
@@ -51,7 +54,9 @@ const HomeScreen = ({ item, getItems, deleteItem, isCheckItem, isAuthenticated})
                         
                     </div>
                 ))}
-            </div>}
+            </div>
+            }
+            
         </div>
     );
 };
