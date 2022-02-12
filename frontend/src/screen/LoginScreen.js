@@ -45,10 +45,10 @@ const LoginScreen = ({ isAuthenticated, error, login, clearErrors }) => {
 
         }else{
             setErr('')
-        }
 
-        if (isAuthenticated) {
-            navigate('/')
+            if (isAuthenticated) {
+                navigate('/')
+            }
         }
 
     }, [error, setErr, clearErrors, isAuthenticated, navigate]);
