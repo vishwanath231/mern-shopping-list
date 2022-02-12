@@ -4,7 +4,7 @@ import { addItem } from '../redux/actions/itemActions';
 import { clearErrors } from '../redux/actions/errorActions';
 import './css/NewItem.css';
 
-const NewItem = ({ addItem, error,clearErrors, isAuthenticated }) => {
+const NewItem = ({ item, addItem, error,clearErrors, isAuthenticated }) => {
 
     const [data, setData] = useState({
         name: ''
@@ -47,6 +47,8 @@ const NewItem = ({ addItem, error,clearErrors, isAuthenticated }) => {
         
     }, [error, clearErrors]);
 
+    const { items, isLoading } = item;
+
     return (
         <div className='newItem__container'>
             <h2>Shopping List</h2>
@@ -64,7 +66,7 @@ const NewItem = ({ addItem, error,clearErrors, isAuthenticated }) => {
                         className="name__input"
                     />
                     <button type='submit' className='submit__btn'>add</button>
-                </form> : <p>Please log in to manage items.</p>
+                </form> : isLoading ? null : <p>Please log in to manage items.</p>
             }
         
         </div>
@@ -72,6 +74,7 @@ const NewItem = ({ addItem, error,clearErrors, isAuthenticated }) => {
 };
 
 const mapStateToProps = (state) => ({
+    item: state.item,
     error: state.error,
     isAuthenticated: state.auth.isAuthenticated
 })
