@@ -33,19 +33,18 @@ const RegisterScreen = ({ isAuthenticated, error, register, clearErrors }) => {
         register(data); 
     }
 
-
     useEffect(() => {
         
         if (error.id === "REGISTER_FAIL") {
             setErr(error.msg.msg)
-
+            
             setTimeout(() => {
                 clearErrors();
             }, 5000);
-
+            
         }else{
             setErr('')
-
+            
             if (isAuthenticated) {
                 navigate('/')
             }
