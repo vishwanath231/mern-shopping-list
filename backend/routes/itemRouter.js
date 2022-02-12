@@ -1,6 +1,6 @@
 import { Router } from 'express';
 const router = Router();
-import Items from '../model/itemModel.js';
+import Item from '../model/itemModel.js';
 import auth from '../middleware/authMiddleware.js'
 
 
@@ -12,34 +12,24 @@ import auth from '../middleware/authMiddleware.js'
  */
 
 router.post('/', auth, async (req, res) => {
-    
-    const { name } = req.body;
+
+    const name = req.body.name;
 
     if (!name) {
-        res.status(401).json({msg: "Shopping name is required!"})
+        return res.status(401).json({msg: "Shopping name is required!"})
     }
 
+    const newItem = new Item({
+        name: name
+    });
+    
     try {
-
-        const newItem = new Items({
-            name: name
-        })
-
-        const savedItem = await newItem.save();
-        if (!savedItem) throw Error("something went wrong saving the list")
-
-        return res.status(200).json({
-            msg: "Item added",
-            savedItem
-        })
-
-        
+        const item = await newItem.save();
+        if (!item) throw Error('Something went wrong saving the item');
+    
+        res.status(200).json(item);
     } catch (e) {
-
-        return res.status(401).json({
-            msg: e.message
-        })
-        
+        res.status(400).json({ msg: e.message });
     }
 
 })
@@ -55,14 +45,36 @@ router.post('/', auth, async (req, res) => {
 router.get('/', async (req, res) => {
     
     try {
+        const items = await Item.find().sort({ date: -1 });
+        if (!items) throw Error('No items');
+    
+        res.status(200).json(items);
+      } catch (e) {
+        res.status(400).json({ msg: e.message });
+      }
+})
 
-        const item = await Items.find().sort({ date: -1 });
-        if (!item) throw Error("No items in record");
-        
-        return res.status(200).json({
-            length: item.length,
-            items: item
-        })
+
+
+
+/**
+ * 
+ * @router PUT api/items:id
+ * @desc   Update a item
+ * @access Public
+ */
+
+router.put('/:id', auth, async (req, res) => {
+    
+    try {
+
+        const updateItem = await Item.updateOne({"_id":req.params.id}, {"$set": {"isCheck": req.body.isCheck}});
+        if (!updateItem) throw Error("Not update!");
+
+        const item = await Item.findById(req.params.id);
+        if (!item) throw Error("Not found is id");
+            
+        res.status(200).json(item);
         
     } catch (e) {
         
@@ -70,12 +82,13 @@ router.get('/', async (req, res) => {
             msg: e.message
         })
     }
+
 })
 
 
 
 /**
- * 
+ *
  * @router DELETE api/items:id
  * @desc   Delete a item
  * @access Public
@@ -87,7 +100,7 @@ router.get('/', async (req, res) => {
     
     try {
 
-        const itemId = await Items.findByIdAndDelete(id);
+        const itemId = await Item.findByIdAndDelete(id);
         if (!itemId) throw Error("Not found is id");
         
         return res.status(200).json({
