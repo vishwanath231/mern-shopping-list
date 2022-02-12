@@ -32,8 +32,9 @@
     cursor: pointer;
     margin-left: .1rem;
     color: #fff;
-    border: 1px solid rgb(15, 17, 34);
-    background: rgb(15, 17, 34);
+    border: 1px solid #F0811A;
+    background: #F0811A;
+    /* background: rgb(15, 17, 34); */
     padding: .7rem 1rem;
     outline-color: cornflowerblue;
     font-size: 1rem;
