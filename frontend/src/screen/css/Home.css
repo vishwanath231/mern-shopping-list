@@ -27,12 +27,20 @@
     text-decoration: none;
 }
 
+.item__actions{
+    width: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 .item__list .action__icon{
     border: none;
     background: none;
     font-size: 1.3rem;
     cursor: pointer;
+    outline: none;
 }
 
 .delete__icon{
@@ -40,5 +48,4 @@
 }
 .check__icon{
     color: green;
-    margin-right: 1.5rem;
 }
