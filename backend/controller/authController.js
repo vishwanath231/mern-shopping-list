@@ -103,4 +103,27 @@ const loginUser = async (req, res) => {
 }
 
 
-export { registerUser , loginUser };
+
+/**
+ * @route   GET api/auth/user
+ * @desc    Get user data
+ * @access  Private
+ */
+
+const getUser = async (req, res) => {
+
+    try {
+
+        const user = await User.findById(req.user.id).select("-password");
+        if (!user) throw Error('User does not exist');
+        res.json(user);
+        
+    } catch (e) {
+        res.status(400).json({
+            msg: e.message
+        })
+    }
+}
+
+
+export { registerUser , loginUser, getUser };
